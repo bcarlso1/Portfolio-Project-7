@@ -1,0 +1,182 @@
+/* ================
+CONFIGURE GRID
+=================== */
+body {
+    margin: auto;
+    font-family: 'Lato', sans-serif;
+}
+main {
+    display: grid;
+    width: 100%;
+    height: 1200px;
+    grid-template-columns: 100px 200px 1fr 300px;
+    grid-template-rows: 100px 500px repeat(4, 200px);
+    grid-template-areas: 
+        "sidebar dashTitle input input"
+        "sidebar traffic traffic traffic"
+        "sidebar daily mobile mobile"
+        "sidebar social social social"
+        "sidebar new recent recent"
+        "sidebar message message settings"; 
+}
+/* ================
+SVGs
+=================== */
+
+.bell {
+    float: right;
+    padding-right: 20px;
+    margin-top: 25px;
+    border-right: solid darkslategray 1px;
+    width: 30px;
+}
+    
+
+/* ================
+NAVIGATION 
+=================== */
+sup {
+    font-size: 10px;
+}
+.profile-image {
+    border-radius: 50%;
+    width: 50px;
+    display: inline-block;
+    float: right;
+    padding-top: 10px;
+    margin-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+.title {
+    display: inline-block;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: 100;
+}
+
+span {
+    font-weight: 900;
+}
+
+.profile-name {
+    float: right;
+    padding-top: 10px;
+    margin-top: 20px;
+    padding-right: 20px;
+}
+
+nav {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    grid-area: nav;
+    background-color:mediumslateblue;
+    height: 80px;
+    color: white;
+}
+/* ================
+SIDEBAR
+=================== */
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: darkslateblue; 
+    width: 100px;
+}
+
+.sidebar-image {
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+    padding: 35px 15px;
+}
+
+/* ================
+TOP TAB
+=================== */
+
+.dash-title {
+    grid-area: dashTitle;
+    width: 100vw;
+    padding: 20px;
+  
+}
+
+.input-top {
+  grid-area: input;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  background-color: #F0F8FF;
+}
+
+input {
+    background-image: url('icons/icon-magnifying.svg');
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 100px;
+    float: right;
+    width: 300px;
+    border-radius: 5px;
+    background-position: right;
+}
+
+input::placeholder {
+    font-size: 20px;
+    color: gray;
+}
+
+/* ================
+TRAFFIC
+=================== */
+
+.traffic {
+    grid-area: traffic;
+    width: 600px;
+    height: 400px;
+}
+
+/* ================
+DAILY & USERS
+=================== */
+
+.daily {
+    grid-area: daily;
+}
+
+.mobile {
+    grid-area: mobile;
+}
+
+/* ================
+SOCIAL
+=================== */
+
+.social {
+    grid-area: social;
+}
+
+/* ================
+NEW & RECENT
+=================== */
+
+.new {
+    grid-area: new;
+}
+
+.recent {
+    grid-area: recent;
+}
+
+.message {
+    grid-area: message;
+}
+
+.settings {
+    grid-area: settings;
+}
+

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+<head>
+    <title>Dashboard</title>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body> 
+<header>
+    <nav>
+        <h2 class="title"><span>Your</span>App<sup>TM</sup></h1>
+        <p class="profile-name">Bob Segura</p> 
+        <img class="profile-image" src="images/member-2.jpg" alt="profile image"> 
+        <img class="bell" src="icons/icon-bell.svg" alt="bell icon">     
+       </nav>   
+</header>
+<main>
+
+  <div class="sidebar">
+        <img class="sidebar-image" src="icons/icon-dashboard.svg" alt="dashboard icon">
+        <img class="sidebar-image" src="icons/icon-members.svg" alt="dashboard icon">
+        <img class="sidebar-image" src="icons/icon-visits.svg" alt="dashboard icon">
+        <img class="sidebar-image" src="icons/icon-settings.svg" alt="dashboard icon">
+  </div>
+  <div class="dash-title">
+        <h2>Dashboard</h2>
+  </div>
+    <div class="input-top">
+        <input type="text" placeholder="Search">
+    </div> 
+  <div class="traffic">
+    <h1>Traffic</h1>
+    <canvas id="trafficChart"></canvas>
+  </div>
+  <section class="daily">
+    <h1>Daily Traffic</h1>
+  </section>
+  <section class="mobile">
+      <h1>Mobile Users</h1>
+  </section>
+  <section class="social">
+      <h1>Social Stats</h1>
+  </section>
+  <section class="new">
+       <h1>New Members</h1>
+  </section>
+  <section class="recent">
+        <h1>Recent Activity</h1>
+   </section>
+   <section class="message">
+        <h1>Message User</h1>
+   </section>
+   <section class="settings">
+        <h1>Settings</h1>
+   </section>
+</main>
+</body>
+<script src="app.js"></script>
+</html> 
