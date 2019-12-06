@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
-<head>
     <title>Dashboard</title>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
@@ -13,69 +13,85 @@
 NAV
 ****************** -->
 <header>
-    <nav>
-        <h2 class="title"><span>Your</span>App<sup>TM</sup></h1>
+        <h1 class="title"><span>Your</span>App<sup>TM</sup></h1>
         <p class="profile-name">Bob Segura</p> 
-        <img class="profile-image" src="images/member-2.jpg" alt="profile image"> 
-        <img id="bell" src="icons/icon-bell.svg" alt="bell icon">     
-       </nav>   
+        <img class="profile-image" src="images/member-2.jpg" alt="profile image">
+            <div id="notifications">
+                <div id="notify"></div>     
+                <img id="bell" src="icons/icon-bell.svg" alt="bell icon">
+            </div> 
 </header>
-<main>
- <section id="charts">
-  <div class="sidebar">
+<nav class="sidebar">
         <img class="sidebar-image" src="icons/icon-dashboard.svg" alt="dashboard icon">
         <img class="sidebar-image" src="icons/icon-members.svg" alt="dashboard icon">
         <img class="sidebar-image" src="icons/icon-visits.svg" alt="dashboard icon">
         <img class="sidebar-image" src="icons/icon-settings.svg" alt="dashboard icon">
-  </div>
+  </nav>
+<main class="main">
+ <section id="top-line">
   <div class="dash-title">
         <h2>Dashboard</h2>
   </div>
     <div class="input-top">
-        <input id="searchBar" type="search" placeholder="Search">
-    </div> 
+            <input id="searchBar" type="search" placeholder="Search">
+    </div>
+    <div class="suggestions">
+            <div>Victoria Chambers</div>
+            <div>Dale Byrd</div>
+            <div>Dawn Wood</div>
+            <div>Dan Oliver</div>
+    </div>
+
   <div id="alert">
-    <p><span>Alert </span>Lorem ipsum dolor amet pok pok kickstarter fixie leggings </p>
-    <p id="close">&times</p>
+    <span id="close">&times;</span>
+    <strong>Alert</strong>Lorem ipsum dolor amet 
+        pok pok kickstarter fixie leggings
   </div>
-    
-<div id="traffic" class="traffic">
+</section>
+<section id="traffic" class="traffic">
         <h2 id="trafficHead">TRAFFIC</h2>
         <div id="hourly" class="timeCharts">Hourly</div>
         <div class="timeCharts" id="daily">Daily</div>
         <div class="timeCharts" id="weekly">Weekly</div>
         <div class="timeCharts" id="monthly">Monthly</div>
         <div id="chartSpot">
-            <canvas id="trafficChart" style="position: relative; height:40vh; width:100vw"></canvas>
+            <canvas id="trafficChart" style="position: relative;"></canvas>
         </div>
-    </div>
+        <div id="chartSpot2">
+            <canvas id="trafficMonthlyChart" style="position: relative;"></canvas>
+        </div>
+        <div id="chartSpot3">
+            <canvas id="trafficDailyChart" style="position: relative;"></canvas>
+        </div>
+        <div id="chartSpot4">
+            <canvas id="trafficHourlyChart" style="position: relative;"></canvas>
+        </div>
+    </section>
 
   <!-- ***********
  MOBILE & DAILY
 ****************** -->
-  <div class="daily">
+  <section class="daily">
     <h2>DAILY TRAFFIC</h2>
-    <canvas id="dailyChart" style="position: relative; height:35vh; width:45vw"></canvas>
-  </div>
-  <div class="mobile">
+    <canvas id="dailyChart" style="position: relative;"></canvas>
+  </section>
+
+  <section class="mobile">
       <h2>MOBILE USERS</h2>
-      <canvas id="mobileChart" style="position: relative; height:40vh; width:50vw"></canvas>
-  </div>
-</section>
+      <canvas id="mobileChart" style="position: relative;"></canvas>
+  </section>
   
 <!-- ***********
     SOCIAL
 ****************** -->
-<div id="social" class="social">
-        <div class="sidebar2"></div>
+<section id="social" class="social">
       <div id="social-title">
           <h2>SOCIAL STATS</h2>
       </div>
      <div id="twitter-div"> 
      <div id="twitter-icon-div">  
-      <?xml version="1.0" encoding="utf-8"?>
         <!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-        <svg id="twitter-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        <svg id="twitter-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
             <path fill="white" d="M32,3.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6C25.8,0.8,24,0,22.2,0
             c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5C10.3,7.8,5.5,5.2,2.2,1.2c-0.6,1-0.9,2.1-0.9,3.3c0,2.3,1.2,4.3,2.9,5.5
@@ -87,13 +103,11 @@ NAV
         <div class="social-text">
         <h3>Twitter</h3>
         <p>10,345</p>
-    </div>
+        </div>
     </div>
     <div id="facebook-div">
         <div id="facebook-icon-div">
-        <?xml version="1.0" ?>
-        <!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
-        <svg id="facebook-icon" enable-background="new 0 0 56.693 56.693" height="56.693px" id="Layer_1" version="1.1" viewBox="0 0 56.693 56.693" width="56.693px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg id="facebook-icon" enable-background="new 0 0 56.693 56.693" height="56.693px" version="1.1" viewBox="0 0 56.693 56.693" width="56.693px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <path fill="white" d="M40.43,21.739h-7.645v-5.014c0-1.883,1.248-2.322,2.127-2.322c0.877,0,5.395,0,5.395,0V6.125l-7.43-0.029  c-8.248,0-10.125,6.174-10.125,10.125v5.518h-4.77v8.53h4.77c0,10.947,0,24.137,0,24.137h10.033c0,0,0-13.32,0-24.137h6.77  L40.43,21.739z"/>
         </svg>
     </div>
@@ -104,135 +118,131 @@ NAV
     </div>
     <div id="google-div">
             <div id="google-icon-div">
-        <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg id="google-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
-     <path fill="white" d="M17.7,25.7c0-0.3,0-0.5-0.1-0.8c-0.1-0.2-0.1-0.5-0.2-0.7c-0.1-0.2-0.2-0.4-0.3-0.7c-0.2-0.2-0.3-0.4-0.4-0.6
-	c-0.1-0.2-0.3-0.3-0.5-0.6c-0.2-0.2-0.4-0.4-0.5-0.5c-0.1-0.1-0.3-0.3-0.6-0.5c-0.3-0.2-0.5-0.4-0.6-0.4s-0.3-0.2-0.6-0.4
-	c-0.3-0.2-0.5-0.4-0.6-0.4c-0.2,0-0.5,0-1,0c-0.7,0-1.4,0-2,0.1c-0.7,0.1-1.4,0.2-2.1,0.5c-0.7,0.2-1.3,0.5-1.9,0.9s-1,0.8-1.3,1.4
-	c-0.3,0.6-0.5,1.3-0.5,2.1c0,0.9,0.2,1.7,0.7,2.3c0.5,0.7,1.1,1.2,1.8,1.6s1.5,0.7,2.3,0.9s1.6,0.3,2.4,0.3c0.8,0,1.5-0.1,2.2-0.2
-	c0.7-0.2,1.3-0.4,1.9-0.8c0.6-0.3,1.1-0.8,1.4-1.4C17.5,27.2,17.7,26.5,17.7,25.7z M15.4,9.1c0-0.8-0.1-1.6-0.3-2.5
-	c-0.2-0.9-0.5-1.7-0.9-2.5c-0.4-0.8-0.9-1.5-1.6-2c-0.7-0.5-1.5-0.8-2.3-0.8c-1.2,0-2.1,0.4-2.8,1.3c-0.7,0.9-1,1.9-1,3.2
-	c0,0.6,0.1,1.2,0.2,1.9c0.1,0.7,0.4,1.3,0.7,2c0.3,0.7,0.7,1.3,1.1,1.8c0.4,0.5,0.9,1,1.5,1.3c0.6,0.3,1.2,0.5,1.9,0.5
-	c1.2,0,2.1-0.4,2.7-1.2C15.1,11.4,15.4,10.4,15.4,9.1z M12.9,0h8.4l-2.6,1.5h-2.6c0.9,0.6,1.6,1.4,2.1,2.4s0.8,2.1,0.8,3.2
-	c0,0.9-0.1,1.8-0.4,2.5c-0.3,0.7-0.7,1.3-1.1,1.8c-0.4,0.4-0.8,0.9-1.3,1.2c-0.4,0.4-0.8,0.8-1.1,1.2c-0.3,0.4-0.4,0.8-0.4,1.3
-	c0,0.3,0.1,0.7,0.3,1c0.2,0.3,0.5,0.6,0.8,0.9c0.3,0.3,0.7,0.6,1.1,0.9c0.4,0.3,0.8,0.7,1.2,1.1c0.4,0.4,0.8,0.8,1.1,1.3
-	c0.3,0.5,0.6,1,0.8,1.6c0.2,0.6,0.3,1.3,0.3,2c0,2.1-0.9,3.9-2.7,5.4c-1.9,1.7-4.6,2.5-8.1,2.5c-0.8,0-1.5-0.1-2.3-0.2
-	c-0.8-0.1-1.6-0.3-2.3-0.6c-0.8-0.3-1.5-0.7-2.1-1.1c-0.6-0.4-1.1-1-1.5-1.7C1,27.6,0.8,26.9,0.8,26c0-0.8,0.2-1.6,0.7-2.6
-	c0.4-0.8,1-1.5,1.8-2.1c0.8-0.6,1.8-1.1,2.8-1.4c1-0.3,2-0.5,3-0.7c0.9-0.1,1.9-0.2,2.9-0.3c-0.8-1.1-1.2-2-1.2-2.9
-	c0-0.2,0-0.3,0-0.5c0-0.1,0.1-0.3,0.1-0.4c0-0.1,0.1-0.2,0.2-0.4c0.1-0.2,0.1-0.3,0.1-0.4c-0.5,0.1-1,0.1-1.3,0.1
-	c-1.9,0-3.5-0.6-4.9-1.9c-1.4-1.3-2-2.8-2-4.7c0-1.8,0.6-3.4,1.8-4.8C6,1.7,7.5,0.8,9.3,0.4C10.5,0.1,11.7,0,12.9,0z M32.8,4.9v2.5
-    h-4.9v4.9h-2.5V7.4h-4.9V4.9h4.9V0h2.5v4.9H32.8z"/>
-</svg>
+    <!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+    <svg id="google-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+        <path fill="white" d="M17.7,25.7c0-0.3,0-0.5-0.1-0.8c-0.1-0.2-0.1-0.5-0.2-0.7c-0.1-0.2-0.2-0.4-0.3-0.7c-0.2-0.2-0.3-0.4-0.4-0.6
+        c-0.1-0.2-0.3-0.3-0.5-0.6c-0.2-0.2-0.4-0.4-0.5-0.5c-0.1-0.1-0.3-0.3-0.6-0.5c-0.3-0.2-0.5-0.4-0.6-0.4s-0.3-0.2-0.6-0.4
+        c-0.3-0.2-0.5-0.4-0.6-0.4c-0.2,0-0.5,0-1,0c-0.7,0-1.4,0-2,0.1c-0.7,0.1-1.4,0.2-2.1,0.5c-0.7,0.2-1.3,0.5-1.9,0.9s-1,0.8-1.3,1.4
+        c-0.3,0.6-0.5,1.3-0.5,2.1c0,0.9,0.2,1.7,0.7,2.3c0.5,0.7,1.1,1.2,1.8,1.6s1.5,0.7,2.3,0.9s1.6,0.3,2.4,0.3c0.8,0,1.5-0.1,2.2-0.2
+        c0.7-0.2,1.3-0.4,1.9-0.8c0.6-0.3,1.1-0.8,1.4-1.4C17.5,27.2,17.7,26.5,17.7,25.7z M15.4,9.1c0-0.8-0.1-1.6-0.3-2.5
+        c-0.2-0.9-0.5-1.7-0.9-2.5c-0.4-0.8-0.9-1.5-1.6-2c-0.7-0.5-1.5-0.8-2.3-0.8c-1.2,0-2.1,0.4-2.8,1.3c-0.7,0.9-1,1.9-1,3.2
+        c0,0.6,0.1,1.2,0.2,1.9c0.1,0.7,0.4,1.3,0.7,2c0.3,0.7,0.7,1.3,1.1,1.8c0.4,0.5,0.9,1,1.5,1.3c0.6,0.3,1.2,0.5,1.9,0.5
+        c1.2,0,2.1-0.4,2.7-1.2C15.1,11.4,15.4,10.4,15.4,9.1z M12.9,0h8.4l-2.6,1.5h-2.6c0.9,0.6,1.6,1.4,2.1,2.4s0.8,2.1,0.8,3.2
+        c0,0.9-0.1,1.8-0.4,2.5c-0.3,0.7-0.7,1.3-1.1,1.8c-0.4,0.4-0.8,0.9-1.3,1.2c-0.4,0.4-0.8,0.8-1.1,1.2c-0.3,0.4-0.4,0.8-0.4,1.3
+        c0,0.3,0.1,0.7,0.3,1c0.2,0.3,0.5,0.6,0.8,0.9c0.3,0.3,0.7,0.6,1.1,0.9c0.4,0.3,0.8,0.7,1.2,1.1c0.4,0.4,0.8,0.8,1.1,1.3
+        c0.3,0.5,0.6,1,0.8,1.6c0.2,0.6,0.3,1.3,0.3,2c0,2.1-0.9,3.9-2.7,5.4c-1.9,1.7-4.6,2.5-8.1,2.5c-0.8,0-1.5-0.1-2.3-0.2
+        c-0.8-0.1-1.6-0.3-2.3-0.6c-0.8-0.3-1.5-0.7-2.1-1.1c-0.6-0.4-1.1-1-1.5-1.7C1,27.6,0.8,26.9,0.8,26c0-0.8,0.2-1.6,0.7-2.6
+        c0.4-0.8,1-1.5,1.8-2.1c0.8-0.6,1.8-1.1,2.8-1.4c1-0.3,2-0.5,3-0.7c0.9-0.1,1.9-0.2,2.9-0.3c-0.8-1.1-1.2-2-1.2-2.9
+        c0-0.2,0-0.3,0-0.5c0-0.1,0.1-0.3,0.1-0.4c0-0.1,0.1-0.2,0.2-0.4c0.1-0.2,0.1-0.3,0.1-0.4c-0.5,0.1-1,0.1-1.3,0.1
+        c-1.9,0-3.5-0.6-4.9-1.9c-1.4-1.3-2-2.8-2-4.7c0-1.8,0.6-3.4,1.8-4.8C6,1.7,7.5,0.8,9.3,0.4C10.5,0.1,11.7,0,12.9,0z M32.8,4.9v2.5
+        h-4.9v4.9h-2.5V7.4h-4.9V4.9h4.9V0h2.5v4.9H32.8z"/>
+    </svg>
 </div>
 <div class="social-text">
     <h3>Google+</h3>
     <p>2,530</p>
 </div>
 </div>
-  </div>
+</section>
   <!-- ***********
  NEW & RECENT
-****************** -->
-<div id="bottom">
-   <div class="sidebar3"></div>  
-  <div class="new">
+****************** --> 
+  <section class="new">
        <h3>NEW MEMBERS</h3>
        <div class="userPost">
+       <div class="date">10/15/15</div>
             <img src="images/member-1.jpg" alt="Victoria"> 
             <div class="member">
                 <p class="username">Victoria Chambers</p><br/>
                 <p class="email">victoria.chambers80@example.com</p>
             </div>
-            <div class="date">10/15/15</div>
         </div>
         <div class="userPost">
+            <div class="date">10/15/15</div>
             <img src="images/member-2.jpg" alt="Dale"> 
             <div class="member">
                 <div class="username">Dale Byrd</div><br/>
                 <div class="email">dale.byrd52@example.com</div>
             </div>
-                <div class="date">10/15/15</div>
         </div>
         
         <div class="userPost">
+            <div class="date">10/15/15</div>
             <img src="images/member-3.jpg" alt="Dawn"> 
             <div class="member">
                 <p class="username">Dawn Wood</p><br/>
-                <p class="email">dawn,wood16@example.com</p>
+                <p class="email">dawn.wood16@example.com</p>
             </div>
-            <div class="date">10/15/15</div>
         </div>
         
         <div class="userPost">
+            <div class="date">10/15/15</div>
             <img src="images/member-4.jpg" alt="Dan"> 
              <div class="member">    
                 <p class="username">Dan Oliver</p><br/>
                 <p class="email">dan.oliver82@example.com</p>
             </div>
-            <div class="date">10/15/15</div>
         </div>
 
 
-    </div>
-  <div class="recent">
+    </section>
+    <section class="recent">
         <h3>RECENT ACTIVITY</h3>
         <div class="userActivity">
                 <img src="images/member-1.jpg" alt="Victoria"> 
+                <div class="arrow">></div>
+                <p class="time">5 hours ago</p>
                 <div class="status">
                     <p class="comment">Victoria Chambers commented on <b>YourApp's SEO Tips</b></p>
-                    <p class="time">4 hours ago</p>
                 </div>
-                <div class="arrow">></div>
             </div>
             <div class="userActivity">
                 <img src="images/member-2.jpg" alt="Dale"> 
+                <div class="arrow">></div>
+                <p class="time">5 hours ago</p>
                 <div class="status">
                     <p class="comment">Dale Byrd liked the post <b>Facebook's Changes for 2016</b></p>
-                    <p class="time">5 hours ago</p>
                 </div>
-                <div class="arrow">></div>
             </div>
             
             <div class="userActivity">
                 <img src="images/member-3.jpg" alt="Dawn"> 
-                <div class="status">
-                    <p class="comment">Dawn Wood commmented on <b>Facebook's Changes for 2016</b></p>
-                    <p class="time">5 hours ago</p>
-            </div>
                 <div class="arrow">></div>
+                <p class="time">11 hours ago</p>
+                <div class="status">
+                    <p class="comment">Dawn Wood commmented on <b>Facebook's Changes for 2016</b></p>   
             </div>
-            
+            </div>
             <div class="userActivity">
                 <img src="images/member-4.jpg" alt="Dan"> 
+                <div class="arrow">></div>
+                <p class="time">1 day ago</p>
                 <div class="status">
                     <p class="comment">Dan Oliver posted <b>Your App's SEO Tips</b></p>
-                    <p class="time">1 day ago</p>
                 </div>
-                <div class="arrow">></div>
             </div>
-  </div>
+            </section>
 
     <!-- ***********
 MESSAGE & SETTINGS
 ****************** -->
-   <div class="message">
+   <section class="message">
         <h3>MESSAGE USER</h3>
         <form name="sendMessage" id="send-message" onsubmit="return messageValidate()">
             <input type="text" name="userSearch" placeholder="Search for User">
             <textarea placeholder="Message for User" name="textbox"></textarea>
-        <button type="submit">SEND</submit>
+        <button type="submit">SEND</button>
         </form>
-   </div>
-   <div class="settings">
+    </section>
+   <section class="settings">
         <h3>SETTINGS</h3>
-        <form>
+        <form id="changeSettings">
             <label class="settings-label" for="emails">Send Email Notifications</label>
-            <button class="settings-button" name="emails">ON<input class="radio" type="radio"></button>
+            <button class="settings-button" id="emails">ON<input class="radio" type="radio"></button>
             <br>
             <label class="settings-label" for="public">Make Profile Public</label>
-            <button class="settings-button" name="public">ON<input class="radio" type="radio"></button>
+            <button class="settings-button" id="public">ON<input class="radio" type="radio"></button>
             <select>
                 <option value="select" selected>Select Timezone</option>
                 <option value="EST">Eastern Standard Time (EST)</option>
@@ -242,9 +252,8 @@ MESSAGE & SETTINGS
             <button class="save">SAVE</button>
             <button class="cancel">CANCEL</button>
         </form>
-   </div>
-</div>
+    </section>
 </main>
-</body>
 <script src="app.js"></script>
+</body>
 </html> 

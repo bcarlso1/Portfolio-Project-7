@@ -1,97 +1,118 @@
 // ****************
 // TRAFFIC CHART  
 // ****************
+var trafficCanvas = document.getElementById('trafficChart');
 
-var ctx = document.getElementById('trafficChart');
-var trafficChart = new Chart(ctx, {
-  type: 'line',
-  data: {
+let trafficData = {
       labels: ["16-22", "23-29", "30-35", "6-12", "13-19", "20-26", "27-30", "4-10", "11-17", "18-24", "25-31"],
       datasets: [{
           data: [500, 1000, 1500, 1200, 1700, 2200, 1700, 1500, 1800, 2500, 2000, 2500],
-          backgroundColor: [
-              '#E6E6FA',
-          ],
-          borderColor: [
-              'purple'
-          ],
-          borderWidth: 1
+          backgroundColor: '#E6E6FA',
+          borderColor: 'purple',
+          borderWidth: 1,
       }]
-  },
-  options: {
+  };
+
+  let trafficOptions = {
+      aspectRatio: 2.5,
+      animation: {
+          duration: 0
+      },
       scales: {
             yAxes: [{
                 ticks: {
-                  beginAtZero: true,
+                  beginAtZero: true
               }
           }]
+      },
+      legend : {
+          display: false
       }
-  }
+
+  };
+
+let trafficChart = new Chart(trafficCanvas, {
+    type: 'line',
+    data: trafficData,
+    options: trafficOptions
 });
+
+
+
 // *****************
 // DAILY CHART
 // ****************
 
-var ctx = document.getElementById('dailyChart');
-var dailyChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
+const dailyCanvas = document.getElementById('dailyChart');
+
+
+const dailyData = {
       labels: ["S", "M", "T", "W", "R", "F", "Sa"],
       datasets: [{
+          label: '# of Hits',
           data: [50, 75, 150, 100, 200, 175, 75],
-          backgroundColor: [
-              '#E6E6FA',
-          ],
-          borderColor: [
-              'purple'
-          ],
+          backgroundColor: '#8080ff',
+          borderColor: 'purple',
           borderWidth: 1
       }]
-  },
-  options: {
+  };
+  
+  const dailyOptions = {
       scales: {
             yAxes: [{
                 ticks: {
                   beginAtZero: true,
               }
           }]
-      }
+      },
+      legend : {
+        display: false
+    }
   }
-});
 
+let dailyChart = new Chart(dailyCanvas, {
+    type: 'bar',
+    data: dailyData,
+    options: dailyOptions
+});
 
 // ************
 // MOBILE CHART
 // ************
 
-var ctx = document.getElementById('mobileChart');
-var mobileChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-      labels: ["Desktop", "Phones", "Tablets"],
-      datasets: [{
-          data: [67, 18, 15],
-          backgroundColor: [
-            '#8080ff',
-              'limegreen',
-              'teal'
-          ],
-          borderColor: [
-              'purple'
-          ],
-          borderWidth: 1
-      }]
-  },
-  options: {
-      scales: {
-            yAxes: [{
-                ticks: {
-                  beginAtZero: true,
-              }
-          }]
+var mobileCanvas = document.getElementById('mobileChart');
+
+const mobileData = {
+    labels: ["Desktop", "Phones", "Tablets"],
+    datasets: [{
+    label: '# of Users',   
+       data: [67, 18, 15],
+       borderWidth: 0,
+       backgroundColor: [
+           '#8080ff',
+            'limegreen',
+             'blue',
+            ]
       }
-  }
-});
+    ]};
+  
+  const mobileOptions = {
+    legend: {
+        position: 'right',
+        labels: {
+            boxWidth: 20,
+            fontStyle: 'bold'
+        }
+        }
+      }
+
+let mobileChart = new Chart(mobileCanvas, {
+    type: 'doughnut',
+    data: mobileData,
+    options: mobileOptions
+    }
+    );
+ 
 
 
 
@@ -144,8 +165,11 @@ function ringBell() {
 }; 
 
 // **************
-// SWITCH CHARTS
+// SWITCH CHARTS - HIDE CHART
 // **************
+window.addEventListener('load', showWeekly);
+
+
 
 document.getElementById('monthly').addEventListener('click', showMonthly);
 
@@ -153,6 +177,7 @@ document.getElementById('monthly').addEventListener('click', showMonthly);
         clearColor();
         document.getElementById('monthly').style.backgroundColor = "limegreen"; 
         removeCurrentChart();
+        document.getElementById('chartSpot2').style.display = "block";
     }
 
 document.getElementById('daily').addEventListener('click', showDaily);
@@ -161,6 +186,7 @@ document.getElementById('daily').addEventListener('click', showDaily);
         clearColor();
         document.getElementById('daily').style.backgroundColor = "limegreen";
         removeCurrentChart();
+        document.getElementById('chartSpot3').style.display = "block";
     }
 
 document.getElementById('weekly').addEventListener('click', showWeekly);
@@ -169,6 +195,7 @@ document.getElementById('weekly').addEventListener('click', showWeekly);
         clearColor();
         document.getElementById('weekly').style.backgroundColor = "limegreen";
         removeCurrentChart();
+        document.getElementById('chartSpot').style.display = "block";
     }
 
 document.getElementById('hourly').addEventListener('click', showHourly);
@@ -177,6 +204,7 @@ document.getElementById('hourly').addEventListener('click', showHourly);
         clearColor();
         document.getElementById('hourly').style.backgroundColor = "limegreen";
         removeCurrentChart();
+        document.getElementById('chartSpot4').style.display = "block";
     }
 
 
@@ -190,11 +218,133 @@ function clearColor() {
 
 
 function removeCurrentChart() {
-    var trafficDiv = document.getElementById('traffic');
-    var trafficChartDiv = document.getElementById('chartSpot');
-    var trafficGone = trafficDiv.removeChild(trafficChartDiv);
-}
+    if (document.getElementById('chartSpot').style.display == "block") {
+        document.getElementById('chartSpot').style.display = "none";
+    }
+    else if (document.getElementById('chartSpot2').style.display == "block") {
+        document.getElementById('chartSpot2').style.display = "none";
+    }
+    else if (document.getElementById('chartSpot3').style.display == "block") {
+        document.getElementById('chartSpot3').style.display = "none";
+    }
+    else {
+            document.getElementById('chartSpot4').style.display = "none";
+        }
+    }
 
+ /* ***********************
+SWITCH CHARTS- CHARTS TO ADD
+*************************** */
+
+var trafficMonthlyCanvas = document.getElementById('trafficMonthlyChart');
+
+let trafficMonthlyData = {
+      labels: ["16-22", "23-29", "30-35", "6-12", "13-19", "20-26", "27-30", "4-10", "11-17", "18-24", "25-31"],
+      datasets: [{
+          data: [6500, 5400, 2050, 6000, 8700, 9200, 9000, 6500, 1800, 9500, 10000, 2500],
+          backgroundColor: '#E6E6FF',
+          borderColor: 'purple',
+          borderWidth: 1,
+      }]
+  };
+
+  let trafficMonthlyOptions = {
+      aspectRatio: 2.5,
+      animation: {
+          duration: 0
+      },
+      scales: {
+            yAxes: [{
+                ticks: {
+                  beginAtZero: true
+              }
+          }]
+      },
+      legend : {
+          display: false
+      }
+
+  };
+
+let trafficMonthlyChart = new Chart(trafficMonthlyCanvas, {
+    type: 'line',
+    data: trafficMonthlyData,
+    options: trafficMonthlyOptions
+});
+
+
+var trafficDailyCanvas = document.getElementById('trafficDailyChart');
+
+let trafficDailyData = {
+      labels: ["16-22", "23-29", "30-35", "6-12", "13-19", "20-26", "27-30", "4-10", "11-17", "18-24", "25-31"],
+      datasets: [{
+          data: [350, 40, 450, 100, 170, 200, 170, 150, 180, 250, 200, 250],
+          backgroundColor: '#E6E6FF',
+          borderColor: 'purple',
+          borderWidth: 1,
+      }]
+  };
+
+  let trafficDailyOptions = {
+      aspectRatio: 2.5,
+      animation: {
+          duration: 0
+      },
+      scales: {
+            yAxes: [{
+                ticks: {
+                  beginAtZero: true
+              }
+          }]
+      },
+      legend : {
+          display: false
+      }
+
+  };
+
+let trafficDailyChart = new Chart(trafficDailyCanvas, {
+    type: 'line',
+    data: trafficDailyData,
+    options: trafficDailyOptions
+});
+
+
+var trafficHourlyCanvas = document.getElementById('trafficHourlyChart');
+
+let trafficHourlyData = {
+      labels: ["16-22", "23-29", "30-35", "6-12", "13-19", "20-26", "27-30", "4-10", "11-17", "18-24", "25-31"],
+      datasets: [{
+          data: [15, 14, 15, 10, 20, 20, 17, 10, 18, 35, 9, 25],
+          backgroundColor: '#E6E6FF',
+          borderColor: 'purple',
+          borderWidth: 1,
+      }]
+  };
+
+  let trafficHourlyOptions = {
+      aspectRatio: 2.5,
+      animation: {
+          duration: 0
+      },
+      scales: {
+            yAxes: [{
+                ticks: {
+                  beginAtZero: true
+              }
+          }]
+      },
+      legend : {
+          display: false
+      }
+
+  };
+
+let trafficHourlyChart = new Chart(trafficHourlyCanvas, {
+    type: 'line',
+    data: trafficHourlyData,
+    options: trafficHourlyOptions
+});
 // **********************
 // SEARCH AUTOCOMPLETE
 // **********************
@@ -233,3 +383,33 @@ function myFunction() {
 }
 }
 end */
+
+/* *******************
+SAVE SETTINGS
+***************** */
+function supportsLocalStorage() {
+    try {
+    return 'localStorage' in window && window['localStorage'] !== null
+    } catch (e) {
+        return false;
+    }
+}
+
+function getRecentEntry() {
+    var searches = localStorage.getItem('recentSearches');
+}
+
+/*
+window.onload = function() {
+    if(suportsLocalStorage()) {
+        var settings = document.getElementById('changeSettings');
+
+        entry.addEventListener('submit', saveSettings);
+
+        saveSettings() {
+
+        }
+    }
+}
+
+*/
