@@ -345,71 +345,132 @@ let trafficHourlyChart = new Chart(trafficHourlyCanvas, {
     data: trafficHourlyData,
     options: trafficHourlyOptions
 });
+
+
+/* *******************
+SAVE SETTINGS (Local Storage)
+***************** */
+function supportsLocalStorage() {
+    try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+    } catch(e) {
+      return false;
+    }
+  }
+
+window.onload = function() {
+    if (supportsLocalStorage()) {
+    
+// Pull Stored Data
+loadStorage();
+
+function loadStorage() {  
+  // load profile radio  
+    var storedProfileSetting = localStorage.getItem('publicRadio');
+      if  (storedProfileSetting) {
+        document.getElementById("publicRadio").setAttribute('checked', 'checked')
+      }
+// load email radio
+      var storedEmailSetting = localStorage.getItem('emailsRadio');
+      if  (storedEmailSetting) {
+        document.getElementById("emailsRadio").setAttribute('checked', 'checked')
+      }
+      var storedTimezone = localStorage.getItem('timezone');
+      if  (storedTimezone == "EST") {
+        document.getElementById("timezone").selectedIndex = "1";
+      }  else if (storedTimezone == "CST") {
+            document.getElementById("timezone").selectedIndex = "2";
+        } else if  (storedTimezone == "MST") {
+        document.getElementById("timezone").selectedIndex = "3";
+        
+    }
+    }
+}
+}
+
+// click event on save button
+
+ document.getElementById("save").addEventListener("click", function(){
+    
+     // Set Storage for Email Notifications 
+        var radioSettings = document.getElementById("emailsRadio");  
+
+
+        if(radioSettings.checked) {
+           radioSettings.checked = true;
+           localStorage.setItem('emailsRadio', radioSettings.checked);  
+         };
+          
+
+
+    // Set Storage for Profile Public
+    
+        var profileSetting = document.getElementById("publicRadio");
+         
+        if (profileSetting.checked) {
+              localStorage.setItem('publicRadio', profileSetting.checked);
+          }
+          
+    // Select Area
+
+        setTimeZone();
+        function setTimeZone() {
+            var timezone = document.getElementById('timezone');
+                localStorage.setItem('timezone', timezone.value);
+            };
+
+        });
+         
+        
+    
+// Cancel
+
+document.getElementById('cancel').addEventListener('click', cancelSettings);
+
+function cancelSettings() {
+    localStorage.clear();
+};
+
+
+
+
+
 // **********************
 // SEARCH AUTOCOMPLETE
 // **********************
 
-var names = ["Victoria Chambers", "Dale Byrd", "Dawn Wood", "Dan Oliver"]
+const names = [
+    {name: "Victoria Chambers"},
+    {name: "Dale Byrd"},
+    {name: "Dawn Wood"},
+    {name: "Dan Oliver"}
+];
 
+const userSearch = document.getElementById("userSearch");
+const suggestionsDiv = document.getElementById("suggestions");
 
-
-
-var entry = document.getElementById('searchBar');
-
-entry.addEventListener('keyup', autoComplete);
-
-function autoComplete() {
-    entry.value = entry.value.toLowerCase();
-    var myEntry = entry.value;
-    console.log(myEntry);
-}
-
-/* start
-var items = document.getElementsByTagName('a');
-var itemsParent = document.getElementsByClassName('flex-item')
-
-
-
-function myFunction() {
-
-    for (var i = 0; i < items.length; i += 1) {
-        var title = items[i].getAttribute('data-caption');
-        console.log(title);
-        if (title.indexOf(myEntry) > -1) {
-            itemsParent[i].style.display = "";
-        } else {
-            itemsParent[i].style.display = "none";
-        }
-}
-}
-end */
-
-/* *******************
-SAVE SETTINGS
-***************** */
-function supportsLocalStorage() {
-    try {
-    return 'localStorage' in window && window['localStorage'] !== null
-    } catch (e) {
-        return false;
+userSearch.addEventListener("keyup", function(){
+    const input = userSearch.value;
+    if (input == "") {
+        suggestionsDiv.innerHTML = "";
     }
-}
-
-function getRecentEntry() {
-    var searches = localStorage.getItem('recentSearches');
-}
-
-/*
-window.onload = function() {
-    if(suportsLocalStorage()) {
-        var settings = document.getElementById('changeSettings');
-
-        entry.addEventListener('submit', saveSettings);
-
-        saveSettings() {
-
-        }
+    suggestionsDiv.innerHTML = "";
+    const suggestions = names.filter(function(person) {
+        return person.name.toLowerCase().startsWith(input);
+      })
+      suggestions.forEach(function(suggested) {
+            const div = document.createElement('div');
+            div.innerHTML = suggested.name;
+            suggestionsDiv.appendChild(div);
+      });
+      if (input == "") {
+        suggestionsDiv.innerHTML = "";
     }
-}
+});
 
-*/
+suggestionsDiv.addEventListener("click", function(event){
+    var divText = event.target.innerHTML;
+    userSearch.value = divText;
+    suggestionsDiv.innerHTML = "";
+});
+

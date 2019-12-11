@@ -197,14 +197,6 @@ input::placeholder {
     color: gray;
 }
 
-.suggestions div {
-    border: 1px solid rgb(141, 68, 68);
-    padding-right: 20px;
-    margin: 2px;
-    text-align: right;
-    width: 30%;
-}
-
 /* ================
 ALERT
 =================== */
@@ -435,6 +427,24 @@ NEW & RECENT
 msg & settings
 =================== */
 
+#suggestions {
+    width: 60%;
+    margin-left: 20px;
+}
+
+#suggestions div {
+    border: 1px solid lightgray;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 20px;
+}
+
+#suggestions div:hover {
+   background-color: gray;
+   color: white;
+   cursor: pointer;
+}
+
 .message {
     margin-bottom: 10px;
 }
@@ -490,7 +500,7 @@ button {
 select {
     display: block;
     font-size: 18px;
-    color: lightgray;
+    color: gray;
     width: 85vw;
     height: 40px;
     margin: 20px;
@@ -527,7 +537,7 @@ select {
     margin-left: 10px;
 }
 
-.save {
+#save {
     background-color:#8080ff;
     display: inline-block;
     height: 40px;
@@ -540,7 +550,7 @@ select {
     color: white;
 }
 
-.cancel {
+#cancel {
     color: white;
     background-color: gray;
     display: inline-block;

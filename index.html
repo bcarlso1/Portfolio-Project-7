@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <title>Dashboard</title>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
@@ -34,12 +38,6 @@ NAV
   </div>
     <div class="input-top">
             <input id="searchBar" type="search" placeholder="Search">
-    </div>
-    <div class="suggestions">
-            <div>Victoria Chambers</div>
-            <div>Dale Byrd</div>
-            <div>Dawn Wood</div>
-            <div>Dan Oliver</div>
     </div>
 
   <div id="alert">
@@ -230,7 +228,11 @@ MESSAGE & SETTINGS
    <section class="message">
         <h3>MESSAGE USER</h3>
         <form name="sendMessage" id="send-message" onsubmit="return messageValidate()">
-            <input type="text" name="userSearch" placeholder="Search for User">
+            <div>
+                <input type="text" name="userSearch" id="userSearch" placeholder="Search for User">
+                <div id="suggestions">
+                </div>
+            </div>
             <textarea placeholder="Message for User" name="textbox"></textarea>
         <button type="submit">SEND</button>
         </form>
@@ -239,18 +241,19 @@ MESSAGE & SETTINGS
         <h3>SETTINGS</h3>
         <form id="changeSettings">
             <label class="settings-label" for="emails">Send Email Notifications</label>
-            <button class="settings-button" id="emails">ON<input class="radio" type="radio"></button>
+            <button class="settings-button" id="emails">ON<input class="radio" id="emailsRadio" type="radio"></button>
             <br>
             <label class="settings-label" for="public">Make Profile Public</label>
-            <button class="settings-button" id="public">ON<input class="radio" type="radio"></button>
-            <select>
+            <button class="settings-button" id="public">ON<input class="radio" id="publicRadio" type="radio"></button>
+            <select id="timezone">
                 <option value="select" selected>Select Timezone</option>
                 <option value="EST">Eastern Standard Time (EST)</option>
                 <option value="CST">Central Standard Time (CST)</option>
                 <option value="MST">Mountain Standard Time (MST)</option>
             </select>
-            <button class="save">SAVE</button>
-            <button class="cancel">CANCEL</button>
+            
+            <button type="button" id="save">SAVE</button>
+            <button id="cancel" type="submit">CANCEL</button>
         </form>
     </section>
 </main>
