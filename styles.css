@@ -572,15 +572,9 @@ MEDIA QUERIES
 ***************** */
 @media (min-width: 768px) {
 
-    .main {
-        grid-template-columns: 50%;    
-    }
-    /* main tag seems to be the cause of the issue when dragging window to new sizes, 
-    it doesn't resize correctly- jumps to too wide going up 
-    or doesn't switch down to mobile view going down
-    works fine if you refresh page at new size */    
+ 
 body {
-    margin: auto;
+    margin: 0;
     font-family: 'Lato', sans-serif;
     display: grid; 
     width: 100%;
@@ -650,13 +644,19 @@ body {
         display: inline-block;
         width: 28%;
     }
-    #twitter-icon-div,
+
     #facebook-icon-div,
     #google-icon-div {
         width: 22%;
         height: 30%;
         margin-top: 20px;
 
+    }
+
+    #twitter-icon-div {
+    width: 22%;
+    height: 30%;
+    margin-top: 10px;
     }
 
     #facebook-icon { 
@@ -668,6 +668,11 @@ body {
     .social-text {
         margin-left: 10px;
     }
+    
+    .userPost {
+        padding-top: 15px;
+    }
+
     .userActivity {
         width: 100%;
     }
@@ -686,6 +691,10 @@ body {
         height: 200px;
     }
 
+    .message {
+        align-content: center;
+    }
+
     .message form button {
         padding-right: 30px;
         padding-left: 30px;
@@ -700,12 +709,14 @@ body {
     }
 
     select,
-    .save,
-    .cancel {
+    #save,
+    #cancel {
         width: 40vw;
     }
 
-  
+    select {
+        margin: 30px auto;
+    }
 
 }
 
