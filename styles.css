@@ -20,14 +20,11 @@ SVGs
 =================== */
 
 #bell {
-    transition: transform 1s ease-in;
-    transform-origin: 50% 50%;
-    float: right;
-
+    transition: 1s ease-in transform;
 }
 
-#notifications:hover {
-    transform: scale(1.2);
+#bell:hover {
+    transform: rotate(360deg);
 }
 
 #twitter-icon-div {
@@ -510,7 +507,7 @@ select {
 .settings-button {
     background-color:#8080ff;
     color: white;
-    height: 40px;
+    height: 30px;
     padding-left: 7px;
     padding-top: 7px;
     padding-bottom: 5px;
@@ -519,6 +516,7 @@ select {
     border-radius: 30px;
     margin: 15.5px 30px;
     box-shadow: inset 0 0 10px #0000;
+    display: inline-block;
 }
 
 .settings-label {
@@ -533,8 +531,10 @@ select {
     width: 25px;
     border: 1px solid gray;
     display: inline-block;
-    float: right;
     margin-left: 10px;
+    margin-top: 6px;
+    border-radius: 50%;
+
 }
 
 #save {
@@ -566,6 +566,8 @@ select {
 .main {
     display: grid;
 }
+
+
 
 /* ****************
 MEDIA QUERIES

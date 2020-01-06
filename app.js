@@ -123,8 +123,7 @@ let mobileChart = new Chart(mobileCanvas, {
 document.getElementById('alert').addEventListener('click', myFunction);
 
 function myFunction() {
-     var chartDiv = document.getElementById('charts');
-     chartDiv.removeChild(chartDiv.childNodes[6]);
+    document.getElementById('alert').style.display = "none";
 }; 
 
 // ************
@@ -350,6 +349,8 @@ let trafficHourlyChart = new Chart(trafficHourlyCanvas, {
 /* *******************
 SAVE SETTINGS (Local Storage)
 ***************** */
+
+
 function supportsLocalStorage() {
     try {
     return 'localStorage' in window && window['localStorage'] !== null;
@@ -399,7 +400,10 @@ function loadStorage() {
         if(radioSettings.checked) {
            radioSettings.checked = true;
            localStorage.setItem('emailsRadio', radioSettings.checked);  
-         };
+         }
+         else (
+            localStorage.removeItem('emailsRadio')
+            ) 
           
 
 
@@ -410,6 +414,9 @@ function loadStorage() {
         if (profileSetting.checked) {
               localStorage.setItem('publicRadio', profileSetting.checked);
           }
+          else (
+            localStorage.removeItem('publicRadio')
+            ) 
           
     // Select Area
 

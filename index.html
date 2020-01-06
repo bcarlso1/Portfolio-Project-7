@@ -21,9 +21,21 @@ NAV
         <p class="profile-name">Bob Segura</p> 
         <img class="profile-image" src="images/member-2.jpg" alt="profile image">
             <div id="notifications">
-                <div id="notify"></div>     
-                <img id="bell" src="icons/icon-bell.svg" alt="bell icon">
-            </div> 
+                <div id="notify"></div>   
+                <svg version="1.1" id="bell" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                    <style type="text/css">
+                        .st0{fill:#FFFFFF;}
+                    </style>
+                    <g id="_x36__6_">
+                        <g>
+                            <path class="st0" d="M24,18v-8c0-5.5-4.5-10-10-10S4,4.5,4,10v8l-4,8h9.1c0.5,2.3,2.5,4,4.9,4s4.4-1.7,4.9-4H28L24,18z M14,28
+                                c-1.3,0-2.4-0.8-2.8-2h5.6C16.4,27.2,15.3,28,14,28z M3,24l3-6v-8c0-4.4,3.6-8,8-8s8,3.6,8,8v8l3,6H3z"/>
+                        </g>
+                    </g>
+                 </svg>
+           
+                </div> 
 </header>
 <nav class="sidebar">
         <img class="sidebar-image" src="icons/icon-dashboard.svg" alt="dashboard icon">
@@ -241,10 +253,10 @@ MESSAGE & SETTINGS
         <h3>SETTINGS</h3>
         <form id="changeSettings">
             <label class="settings-label" for="emails">Send Email Notifications</label>
-            <button class="settings-button" id="emails">ON<input class="radio" id="emailsRadio" type="radio"></button>
+            <div class="settings-button" id="emails">ON<input class="radio" id="emailsRadio" type="checkbox"></div>
             <br>
             <label class="settings-label" for="public">Make Profile Public</label>
-            <button class="settings-button" id="public">ON<input class="radio" id="publicRadio" type="radio"></button>
+            <div class="settings-button" id="public">ON<input class="radio" id="publicRadio" type="checkbox"></div>
             <select id="timezone">
                 <option value="select" selected>Select Timezone</option>
                 <option value="EST">Eastern Standard Time (EST)</option>
